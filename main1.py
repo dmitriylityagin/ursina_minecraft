@@ -1,7 +1,10 @@
 from menushka import *
 from pygame import *
+
 while True:
     start = False
+    mixer.music.load("music/menu-music.wav")
+    mixer.music.play(-1)
     while not start:
         start = play_button.check()
         sc.fill((202, 228, 241))
@@ -11,10 +14,12 @@ while True:
         play_button.draw()
         for e in event.get():
             display.update()
+    mixer.music.unload()
     quit()
     from rty import *
-
-    # ZombieModel = load_model('zombie.obj')
-    # zombie1 = Entity(model=ZombieModel, texture=Zombie, scale=1, x=dist / 2, z=dist / 2)
+    init()
+    mixer.music.load("music/in-game-music.wav")
+    mixer.music.play(-1)
+    
     app.run()
-# cube = Entity(model='cube', texture=gug, collider="mesh", scale=(2, 2, 2), position=(1, 0, 5))
+
